@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using TechSpire.Domain.Entity;
 
 
-namespace TechSpire.Domain.Entity;
-public class AppUser : IdentityUser
+namespace TechSpire.Domain.Entities;
+public class ApplicataionUser : IdentityUser
 {
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
@@ -17,7 +18,7 @@ public class AppUser : IdentityUser
         {
             var total = stage.Lessons.Count;
             var completed = stage.Lessons.Count(l => CompletedLessonIds.Contains(l.Id));
-            double percentage = total == 0 ? 0 : (completed / (double)total) * 100;
+            double percentage = total == 0 ? 0 : completed / (double)total * 100;
             progress[stage.Id] = percentage;
         }
         return progress;
