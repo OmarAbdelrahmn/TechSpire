@@ -36,14 +36,7 @@ public static class InfraDependencies
 
         Services.AddEndpointsApiExplorer();
         Services.AddHttpContextAccessor();
-        Services.AddScoped<IPollsService, PollsService>();
-        Services.AddScoped<IAdminService, AdminService>();
-        Services.AddScoped<IRoleService, RoleService>();
-        Services.AddScoped<IUserService, UserServices>();
-        Services.AddScoped<INotificationService, NotificationService>();
-        Services.AddScoped<IResultService, ResultService>();
-        Services.AddScoped<IVotesService, VotesService>();
-        Services.AddScoped<IQuestionService, QuestionService>();
+        Services.AddScoped<IUserService, UserServices>();;
         Services.AddScoped<IEmailSender, EmailService>();
         Services.AddScoped<IAuthService, AuthService>();
         Services.AddScoped<IJwtProvider, JwtProvider>();
@@ -95,10 +88,9 @@ public static class InfraDependencies
     }
     public static IServiceCollection AddAuth(this IServiceCollection Services, IConfiguration configuration)
     {
-        Services.AddTransient<IAuthorizationHandler, PermissionAuthorizationHandler>();
-        Services.AddTransient<IAuthorizationPolicyProvider, PermissionAuthorizationPolicyProvider>();
 
-        Services.AddIdentity<ApplicataionUser, ApplicationRole>()
+
+        Services.AddIdentity<ApplicataionUser>()
             .AddEntityFrameworkStores<AppDbcontext>()
             .AddDefaultTokenProviders();
 
