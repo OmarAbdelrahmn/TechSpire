@@ -1,6 +1,0 @@
-@TechSpire_HostAddress = http://localhost:5285
-
-GET {{TechSpire_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
