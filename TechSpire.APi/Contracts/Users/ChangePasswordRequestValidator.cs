@@ -4,9 +4,9 @@ using SurvayBasket.Domain.Consts;
 
 namespace SurvayBasket.Application.Contracts.Users;
 
-public class RoleRequestValidator : AbstractValidator<ChangePasswordRequest>
+public class ChangePasswordRequestValidator : AbstractValidator<ChangePasswordRequest>
 {
-    public RoleRequestValidator()
+    public ChangePasswordRequestValidator()
     {
         RuleFor(i => i.CurrentPassword)
             .NotEmpty();
