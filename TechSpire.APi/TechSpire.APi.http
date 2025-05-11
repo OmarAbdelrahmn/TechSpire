@@ -1,0 +1,6 @@
+@TechSpire.APi_HostAddress = http://localhost:5207
+
+GET {{TechSpire.APi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
