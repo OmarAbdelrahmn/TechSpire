@@ -200,6 +200,7 @@ public class AuthService(
             return Result.Failure(UserErrors.EmailAlreadyExist);
 
         var user = request.Adapt<ApplicataionUser>();
+        user.UserName = request.Email;
 
         var result = await manager.CreateAsync(user, request.Password);
 

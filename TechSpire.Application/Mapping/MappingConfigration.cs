@@ -1,6 +1,4 @@
-﻿
-
-using Mapster;
+﻿using Mapster;
 using TechSpire.Application.Contracts.Auth;
 using TechSpire.Domain.Entities;
 

@@ -1,3 +1,5 @@
+using Hangfire;
+using TechSpire.APi.Exceptions;
 using TechSpire.infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddOpenApi();
 
 builder.Services.AddSwaggerGen();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+
 
 var app = builder.Build();
 
@@ -21,6 +25,10 @@ var app = builder.Build();
 //{
 
 //}
+app.UseExceptionHandler();   //  Handle exceptions
+
+app.UseHangfireDashboard("/jobs");
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
