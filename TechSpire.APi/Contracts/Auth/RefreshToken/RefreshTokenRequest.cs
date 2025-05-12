@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Application.Contracts.Auth.RefreshToken;
+﻿namespace TechSpire.APi.Contracts.Auth.RefreshToken;
 
 public record RefreshTokenRequest
 (

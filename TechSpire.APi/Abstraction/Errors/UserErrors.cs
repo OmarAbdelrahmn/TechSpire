@@ -1,5 +1,4 @@
-﻿namespace SurvayBasket.Application.Abstraction.Errors;
-
+﻿namespace TechSpire.APi.Abstraction.Errors;
 public static class UserErrors
 {
     public static readonly Error InvalidCredentials = new("User.InvalidCredentials", "Invalid Email/Password", StatusCodes.Status401Unauthorized);

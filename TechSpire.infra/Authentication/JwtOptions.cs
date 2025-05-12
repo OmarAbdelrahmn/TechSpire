@@ -1,5 +1,4 @@
-﻿namespace SurvayBasket.Infrastructure.Authentication;
-
+﻿namespace TechSpire.infra.Authentication;
 public class JwtOptions
 {
     [Required]

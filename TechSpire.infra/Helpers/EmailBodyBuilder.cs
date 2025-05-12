@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Infrastructure.Helpers;
+﻿namespace SurvayBasket.infra.Helpers;
 
 public static class EmailBodyBuilder
 {

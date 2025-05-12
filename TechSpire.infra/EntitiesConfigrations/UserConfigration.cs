@@ -1,6 +1,6 @@
-﻿using SurvayBasket.Domain.Consts;
+﻿using TechSpire.Domain.Consts;
 
-namespace SurvayBasket.Infrastructure.EntitiesConfigrations;
+namespace TechSpire.infra.EntitiesConfigrations;
 
 public class UserConfigration : IEntityTypeConfiguration<ApplicataionUser>
 {

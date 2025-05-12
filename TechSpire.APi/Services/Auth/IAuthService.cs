@@ -1,7 +1,8 @@
-﻿using SurvayBasket.Application.Abstraction;
-using SurvayBasket.Application.Contracts.Auth;
+﻿
+using TechSpire.APi.Abstraction;
+using TechSpire.APi.Contracts.Auth;
 
-namespace SurvayBasket.Application.Services.Auth;
+namespace TechSpire.APi.Services.Auth;
 
 public interface IAuthService
 {

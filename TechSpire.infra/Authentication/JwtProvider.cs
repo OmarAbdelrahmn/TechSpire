@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace SurvayBasket.Infrastructure.Authentication;
+namespace TechSpire.infra.Authentication;
 
 public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 {

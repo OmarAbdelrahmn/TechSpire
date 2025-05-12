@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using SurvayBasket.Domain.Consts;
+using TechSpire.Domain.Consts;
 //using SurveyBasket.Contracts.Users;
 
-namespace SurvayBasket.Application.Contracts.Users;
+namespace TechSpire.APi.Contracts.Users;
 
 public class ChangePasswordRequestValidator : AbstractValidator<ChangePasswordRequest>
 {

@@ -20,4 +20,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TechSpire.Domain\TechSpire.Domain.csproj" />
+    <ProjectReference Include="..\TechSpire.infra\TechSpire.infra.csproj" />
+  </ItemGroup>
+
 </Project>

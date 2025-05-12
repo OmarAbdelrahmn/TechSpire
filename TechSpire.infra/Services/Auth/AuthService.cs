@@ -1,14 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using SurvayBasket.Application.Abstraction;
-using SurvayBasket.Application.Abstraction.Errors;
-using SurvayBasket.Application.Contracts.Auth;
-using SurvayBasket.Application.Services.Auth;
-using SurvayBasket.Domain.Consts;
-using SurvayBasket.Infrastructure.Authentication;
-using SurvayBasket.Infrastructure.Dbcontext;
-using SurvayBasket.Infrastructure.Helpers;
+using TechSpire.infra.Authentication;
+using TechSpire.infra.Dbcontext;
 
-namespace SurvayBasket.Infrastructure.Services.Auth;
+namespace TechSpire.infra.Services.Auth;
 
 public class AuthService(
     UserManager<ApplicataionUser> manager,

@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Infrastructure.Settings;
+﻿namespace TechSpire.infra.Settings;
 
 public class MailSettings
 {

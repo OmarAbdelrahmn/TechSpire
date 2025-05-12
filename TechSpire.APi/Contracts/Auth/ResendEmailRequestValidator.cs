@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
-//using SurveyBasket.Contracts.Auth;
 
-namespace SurvayBasket.Application.Contracts.Auth;
+namespace TechSpire.APi.Contracts.Auth;
 
 public class ResendEmailRequestValidator : AbstractValidator<ResendEmailRequest>
 {

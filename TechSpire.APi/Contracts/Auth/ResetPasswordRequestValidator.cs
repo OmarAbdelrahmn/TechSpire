@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using SurvayBasket.Domain.Consts;
+using TechSpire.Domain.Consts;
 
-namespace SurvayBasket.Application.Contracts.Auth;
+namespace TechSpire.APi.Contracts.Auth;
 
 public class ResetPasswordRequestValidator : AbstractValidator<ResetPasswordRequest>
 {

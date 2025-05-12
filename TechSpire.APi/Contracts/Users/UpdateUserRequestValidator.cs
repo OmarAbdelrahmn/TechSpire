@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-//using SurveyBasket.Contracts.Users;
 
-namespace SurvayBasket.Application.Contracts.Users;
+
+namespace TechSpire.APi.Contracts.Users;
 
 public class UpdateUserRequestValidator : AbstractValidator<UpdateUserRequest>
 {

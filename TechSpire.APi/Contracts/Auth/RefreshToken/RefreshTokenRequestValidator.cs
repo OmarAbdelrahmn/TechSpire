@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace SurvayBasket.Application.Contracts.Auth.RefreshToken;
+namespace TechSpire.APi.Contracts.Auth.RefreshToken;
 
 public class RefreshTokenRequestValidator : AbstractValidator<RefreshTokenRequest>
 {

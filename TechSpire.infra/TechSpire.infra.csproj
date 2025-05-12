@@ -35,4 +35,8 @@
     <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="9.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TechSpire.Domain\TechSpire.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

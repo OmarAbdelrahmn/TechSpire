@@ -1,7 +1,10 @@
 ﻿using FluentValidation;
-using SurvayBasket.Domain.Consts;
 
-namespace SurvayBasket.Application.Contracts.Auth;
+using TechSpire.Domain.Consts;
+
+namespace TechSpire.APi.Contracts.Auth;
+
+
 
 public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
 {

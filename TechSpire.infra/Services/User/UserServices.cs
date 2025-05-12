@@ -1,8 +1,6 @@
-﻿using SurvayBasket.Application.Abstraction;
-using SurvayBasket.Application.Contracts.Users;
-using SurvayBasket.Application.Services.User;
+﻿
 
-namespace SurvayBasket.Infrastructure.Services.User;
+namespace TechSpire.infra.Services.User;
 
 public class UserServices(UserManager<ApplicataionUser> manager) : IUserService
 {

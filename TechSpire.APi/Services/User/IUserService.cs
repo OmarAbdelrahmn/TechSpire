@@ -1,7 +1,7 @@
-﻿using SurvayBasket.Application.Abstraction;
-using SurvayBasket.Application.Contracts.Users;
+﻿using TechSpire.APi.Abstraction;
+using TechSpire.APi.Contracts.Users;
 
-namespace SurvayBasket.Application.Services.User;
+namespace TechSpire.APi.Services.User;
 
 public interface IUserService
 {

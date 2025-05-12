@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 
-namespace SurvayBasket.Infrastructure.Dbcontext;
+namespace TechSpire.infra.Dbcontext;
 public class AppDbcontext(DbContextOptions<AppDbcontext> options) : IdentityDbContext<AppUser>(options)
 {
 

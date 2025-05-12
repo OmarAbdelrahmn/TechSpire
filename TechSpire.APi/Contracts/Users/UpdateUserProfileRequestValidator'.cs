@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
+using TechSpire.APi.Contracts.Users;
 
-namespace SurvayBasket.Application.Contracts.Users;
+namespace TechSpire.Domain.Contracts.Users;
 
 public class UpdateUserProfileRequestValidator_ : AbstractValidator<UpdateUserProfileRequest>
 {

@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Application.Abstraction;
+﻿namespace TechSpire.APi.Abstraction;
 
 public class Result
 {

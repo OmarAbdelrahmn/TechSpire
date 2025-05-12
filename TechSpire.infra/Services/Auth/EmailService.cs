@@ -3,7 +3,7 @@ using MailKit.Security;
 using MimeKit;
 using SurvayBasket.Infrastructure.Settings;
 
-namespace SurvayBasket.Infrastructure.Services.Auth;
+namespace TechSpire.infra.Services.Auth;
 
 public class EmailService(IOptions<MailSettings> options) : IEmailSender
 {

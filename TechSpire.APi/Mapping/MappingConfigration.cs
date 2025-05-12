@@ -1,13 +1,13 @@
-﻿//using SurveyBasket.Contracts.Questions;
-//using SurveyBasket.Contracts.Users;
+﻿
 
 using Mapster;
-using SurvayBasket.Application.Contracts.Auth;
-using SurvayBasket.Application.Contracts.Questions;
-using SurvayBasket.Application.Contracts.Users;
-using SurvayBasket.Domain.Entities;
+using Microsoft.AspNetCore.Identity.Data;
+using TechSpire.APi.Contracts.Users;
+using TechSpire.Domain.Entities;
+using TechSpire.Domain.Entity;
 
-namespace SurvayBasket.Application.Mapping;
+
+namespace TechSpire.APi.Mapping;
 
 public class MappingConfigration : IRegister
 {

@@ -13,7 +13,7 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Metadata.Builders;
 global using Microsoft.Extensions.Options;
 global using Microsoft.IdentityModel.Tokens;
-global using SurvayBasket.Domain.Entities;
+global using TechSpire.Domain.Entities;
 global using System.ComponentModel.DataAnnotations;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Reflection;

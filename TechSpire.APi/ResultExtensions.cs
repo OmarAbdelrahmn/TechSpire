@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SurvayBasket.Application.Abstraction;
+using TechSpire.APi.Abstraction;
 
-namespace SurvayBasket.API;
+namespace TechSpire.APi;
 
 public static class ResultExtensions
 {

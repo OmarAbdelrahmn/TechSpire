@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Application.Contracts.Users;
+﻿namespace TechSpire.APi.Contracts.Users;
 
 public record UserResponse
 (

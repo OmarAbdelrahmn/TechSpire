@@ -1,4 +1,5 @@
-﻿namespace SurvayBasket.Application.Contracts.Auth;
+﻿namespace TechSpire.APi.Contracts.Auth;
+
 
 public record ResendEmailRequest
 (

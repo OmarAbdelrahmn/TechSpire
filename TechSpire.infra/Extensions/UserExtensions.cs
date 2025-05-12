@@ -1,4 +1,4 @@
-﻿namespace SurvayBasket.Infrastructure.Extensions;
+﻿namespace TechSpire.infra.Extensions;
 
 public static class UserExtensions
 {

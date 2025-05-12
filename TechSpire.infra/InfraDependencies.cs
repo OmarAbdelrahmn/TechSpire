@@ -1,31 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SurvayBasket.Application.Services.AddResults;
-using SurvayBasket.Application.Services.Admin;
-using SurvayBasket.Application.Services.Auth;
-using SurvayBasket.Application.Services.Notification;
-using SurvayBasket.Application.Services.Polls;
-using SurvayBasket.Application.Services.Questions;
-using SurvayBasket.Application.Services.Roles;
-using SurvayBasket.Application.Services.User;
-using SurvayBasket.Application.Services.Votes;
-using SurvayBasket.Infrastructure.Authentication;
-using SurvayBasket.Infrastructure.Authentication.Filters;
-using SurvayBasket.Infrastructure.Dbcontext;
-using SurvayBasket.Infrastructure.Services.AddResults;
-using SurvayBasket.Infrastructure.Services.Admin;
-using SurvayBasket.Infrastructure.Services.Auth;
-using SurvayBasket.Infrastructure.Services.Notification;
-using SurvayBasket.Infrastructure.Services.Polls;
-using SurvayBasket.Infrastructure.Services.Questions;
-using SurvayBasket.Infrastructure.Services.Roles;
-using SurvayBasket.Infrastructure.Services.User;
-using SurvayBasket.Infrastructure.Services.Votes;
-using SurvayBasket.Infrastructure.Settings;
+using TechSpire.infra.Authentication;
+using TechSpire.infra.Dbcontext;
+using TechSpire.infra.Services.Auth;
+using TechSpire.infra.Services.User;
+using TechSpire.infra.Settings;
 //using Microsoft.OpenApi.Models;
 
 
-namespace SurvayBasket.Infrastructure;
+namespace TechSpire.infra;
 public static class InfraDependencies
 {
     // This class is used to group all the dependencies related to the infrastructure layer.
