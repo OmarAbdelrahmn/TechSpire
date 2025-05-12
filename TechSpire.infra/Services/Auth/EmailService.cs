@@ -1,7 +1,7 @@
 ﻿using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
-using SurvayBasket.Infrastructure.Settings;
+using TechSpire.infra.Settings;
 
 namespace TechSpire.infra.Services.Auth;
 

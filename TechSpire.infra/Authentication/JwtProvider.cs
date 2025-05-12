@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-
-namespace TechSpire.infra.Authentication;
+﻿namespace TechSpire.infra.Authentication;
 
 public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
 {
@@ -14,7 +12,7 @@ public class JwtProvider(IOptions<JwtOptions> options) : IJwtProvider
             new (JwtRegisteredClaimNames.GivenName, user.FirstName),
             new (JwtRegisteredClaimNames.FamilyName, user.LastName),
             new (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            
+
             ];
 
         var SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(options.Key));

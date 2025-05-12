@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TechSpire.APi.Abstraction;
+using TechSpire.Application.Abstraction;
 
 namespace TechSpire.APi;
 

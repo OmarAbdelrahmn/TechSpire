@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TechSpire.Domain.Entity;
+﻿namespace TechSpire.Domain.Entities;
 public class Article
 {
     public int Id { get; set; }

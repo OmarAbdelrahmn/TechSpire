@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using TechSpire.Domain.Entity;
+﻿using Microsoft.AspNetCore.Identity;
 
 
 namespace TechSpire.Domain.Entities;
@@ -7,7 +6,8 @@ public class ApplicataionUser : IdentityUser
 {
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
-
+    public List<RefreshToken> RefreshTokens { get; set; } = [];
+    public bool IsDisabled { get; set; } = false;
     public List<int> CompletedLessonIds { get; set; } = [];
 
     // Key: StageId, Value: percentage (0–100)

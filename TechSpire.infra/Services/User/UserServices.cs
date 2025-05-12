@@ -1,4 +1,6 @@
-﻿
+﻿using TechSpire.Application.Abstraction;
+using TechSpire.Application.Contracts.Users;
+using TechSpire.Application.Services.User;
 
 namespace TechSpire.infra.Services.User;
 

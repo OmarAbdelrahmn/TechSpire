@@ -17,10 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\TechSpire.Application\TechSpire.Application.csproj" />
     <ProjectReference Include="..\TechSpire.Domain\TechSpire.Domain.csproj" />
     <ProjectReference Include="..\TechSpire.infra\TechSpire.infra.csproj" />
   </ItemGroup>

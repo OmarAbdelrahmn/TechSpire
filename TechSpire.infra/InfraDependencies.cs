@@ -1,10 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TechSpire.Application.Services.Auth;
+using TechSpire.Application.Services.User;
+using TechSpire.infra;
 using TechSpire.infra.Authentication;
 using TechSpire.infra.Dbcontext;
 using TechSpire.infra.Services.Auth;
 using TechSpire.infra.Services.User;
 using TechSpire.infra.Settings;
+using Hangfire;
 //using Microsoft.OpenApi.Models;
 
 
@@ -19,11 +23,10 @@ public static class InfraDependencies
 
         Services.AddEndpointsApiExplorer();
         Services.AddHttpContextAccessor();
-        Services.AddScoped<IUserService, UserServices>();;
+        Services.AddScoped<IUserService, UserServices>();
         Services.AddScoped<IEmailSender, EmailService>();
         Services.AddScoped<IAuthService, AuthService>();
         Services.AddScoped<IJwtProvider, JwtProvider>();
-
 
         Services.AddProblemDetails();
 
@@ -73,7 +76,7 @@ public static class InfraDependencies
     {
 
 
-        Services.AddIdentity<ApplicataionUser>()
+        Services.AddIdentity<ApplicataionUser , IdentityRole>()
             .AddEntityFrameworkStores<AppDbcontext>()
             .AddDefaultTokenProviders();
 

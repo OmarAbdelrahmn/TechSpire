@@ -1,4 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
+using SurvayBasket.infra.Helpers;
+using TechSpire.Application.Abstraction;
+using TechSpire.Application.Abstraction.Errors;
+using TechSpire.Application.Contracts.Auth;
+using TechSpire.Application.Services.Auth;
 using TechSpire.infra.Authentication;
 using TechSpire.infra.Dbcontext;
 
@@ -28,7 +33,7 @@ public class AuthService(
         if (await manager.FindByEmailAsync(request.Email) is not { } user)
             return Result.Failure<AuthResponse>(UserErrors.InvalidCredentials);
 
-        if (user.IsDisable)
+        if (user.IsDisabled)
             return Result.Failure<AuthResponse>(UserErrors.Disableuser);
 
         //using user manager
@@ -111,7 +116,7 @@ public class AuthService(
         if (user is null)
             return Result.Failure<AuthResponse>(UserErrors.InvalidCredentials);
 
-        if (user.IsDisable)
+        if (user.IsDisabled)
             return Result.Failure<AuthResponse>(UserErrors.Disableuser);
 
         if (user.LockoutEnd > DateTime.UtcNow)
@@ -242,7 +247,7 @@ public class AuthService(
         if (result.Succeeded)
         {
 
-            
+
 
             return Result.Success();
         }

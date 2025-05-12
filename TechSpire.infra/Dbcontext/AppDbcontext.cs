@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 
 
 namespace TechSpire.infra.Dbcontext;
-public class AppDbcontext(DbContextOptions<AppDbcontext> options) : IdentityDbContext<AppUser>(options)
+public class AppDbcontext(DbContextOptions<AppDbcontext> options) : IdentityDbContext<ApplicataionUser>(options)
 {
 
 

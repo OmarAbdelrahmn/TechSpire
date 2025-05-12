@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpire.APi", "TechSpire.APi\TechSpire.APi.csproj", "{3FD49477-F01E-42CA-91E5-2DF9E8D73D8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpire.infra", "TechSpire.infra\TechSpire.infra.csproj", "{13DB47B9-53E4-480A-BFCD-F1A8D24E8A86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpire.Domain", "TechSpire.Domain\TechSpire.Domain.csproj", "{051F50DD-7EEA-43B9-B6D2-3EC3054464EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechSpire.Application", "TechSpire.Application\TechSpire.Application.csproj", "{7F5FAB22-25EA-4B6C-A1C7-58D55D011A69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{051F50DD-7EEA-43B9-B6D2-3EC3054464EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{051F50DD-7EEA-43B9-B6D2-3EC3054464EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{051F50DD-7EEA-43B9-B6D2-3EC3054464EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F5FAB22-25EA-4B6C-A1C7-58D55D011A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F5FAB22-25EA-4B6C-A1C7-58D55D011A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F5FAB22-25EA-4B6C-A1C7-58D55D011A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F5FAB22-25EA-4B6C-A1C7-58D55D011A69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
