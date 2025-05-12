@@ -9,6 +9,7 @@ public class ApplicataionUser : IdentityUser
     public List<RefreshToken> RefreshTokens { get; set; } = [];
     public bool IsDisabled { get; set; } = false;
     public List<int> CompletedLessonIds { get; set; } = [];
+    //public UserAnswer UserAnswer { get; set; } = default!;
 
     // Key: StageId, Value: percentage (0–100)
     public Dictionary<int, double> GetStageProgress(List<Stage> stages)

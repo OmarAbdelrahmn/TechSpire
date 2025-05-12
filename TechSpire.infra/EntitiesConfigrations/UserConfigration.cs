@@ -21,21 +21,6 @@ public class UserConfigration : IEntityTypeConfiguration<ApplicataionUser>
             .IsRequired()
             .HasMaxLength(100);
 
-        builder.HasData(new ApplicataionUser
-        {
-            Id = DefaultUsers.AdminId,
-            UserName = DefaultUsers.AdminEmail,
-            NormalizedUserName = DefaultUsers.AdminEmail.ToUpper(),
-            Email = DefaultUsers.AdminEmail,
-            NormalizedEmail = DefaultUsers.AdminEmail.ToUpper(),
-            EmailConfirmed = true,
-            PasswordHash = new PasswordHasher<ApplicataionUser>().HashPassword(null!, "P@ssword1234"),
-            SecurityStamp = DefaultUsers.AdminSecurityStamp,
-            ConcurrencyStamp = DefaultUsers.AdminConcurrencyStamp,
-            FirstName = "Survay Basket",
-            LastName = "Admin"
-        });
-
     }
 }
 

@@ -6,6 +6,20 @@ public class AppDbcontext(DbContextOptions<AppDbcontext> options) : IdentityDbCo
 {
 
 
+    public DbSet<RefreshToken> RefreshTokens { get; set; } = default!;
+    public DbSet<Stage> Stages { get; set; } = default!;
+    public DbSet<Lesson> Lessons { get; set; } = default!;
+    public DbSet<Quiz> Quizzes { get; set; } = default!;
+    public DbSet<Answer> Answers{ get; set; } = default!;
+    public DbSet<UserAnswer> UserAnswers { get; set; } = default!;
+    public DbSet<Post> Posts { get; set; } = default!;
+    public DbSet<Article> Articles { get; set; } = default!;
+    public DbSet<Book> Books { get; set; } = default!;
+    public DbSet<Question> Questions { get; set; } = default!;
+
+
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
