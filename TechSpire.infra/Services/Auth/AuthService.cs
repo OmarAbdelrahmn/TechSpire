@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
-using SurvayBasket.infra.Helpers;
 using TechSpire.Application.Abstraction;
 using TechSpire.Application.Abstraction.Errors;
 using TechSpire.Application.Contracts.Auth;
 using TechSpire.Application.Services.Auth;
 using TechSpire.infra.Authentication;
 using TechSpire.infra.Dbcontext;
+using TechSpire.infra.Helpers;
 
 namespace TechSpire.infra.Services.Auth;
 
@@ -289,7 +289,7 @@ public class AuthService(
 
             });
 
-        BackgroundJob.Enqueue(() => emailSender.SendEmailAsync(user.Email!, "Survay basket : Email configration", emailbody));
+        BackgroundJob.Enqueue(() => emailSender.SendEmailAsync(user.Email!, "TechSpire : Email configration", emailbody));
         await Task.CompletedTask;
     }
 
@@ -304,7 +304,7 @@ public class AuthService(
 
             });
 
-        BackgroundJob.Enqueue(() => emailSender.SendEmailAsync(user.Email!, "Survay basket : change password", emailbody));
+        BackgroundJob.Enqueue(() => emailSender.SendEmailAsync(user.Email!, "TechSpire : change password", emailbody));
         await Task.CompletedTask;
     }
 
