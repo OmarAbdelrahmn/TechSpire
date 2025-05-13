@@ -28,4 +28,14 @@ public class StageController(IStageService service) : ControllerBase
             ? Ok(result.Value)
             : result.ToProblem();
     }
+    
+    [HttpPost("{Lessonid}")]
+    public async Task<IActionResult> CompleteLesson(string UserId , int Lessonid)
+    {
+        var result = await service.CompleteLesson(UserId , Lessonid);
+
+        return result.IsSuccess
+            ? Ok(result.Value)
+            : result.ToProblem();
+    }
 }

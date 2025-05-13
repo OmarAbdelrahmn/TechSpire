@@ -1,7 +1,7 @@
 ﻿namespace TechSpire.Domain.Entities;
 public class UserAnswer
 {
-    public int UserId { get; set; }
+    public string UserId { get; set; } = string.Empty;
     public int QuestionId { get; set; }
     public int AnswerId { get; set; }
     public ApplicataionUser User { get; set; } = default!;

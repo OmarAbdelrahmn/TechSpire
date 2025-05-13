@@ -11,4 +11,5 @@ public interface IStageService
 {
     Task<Result<IEnumerable<StageResponse>>> GetAllStagesWithData();
     Task<Result<StageResponse>> GetStageWithData(int Id);
+    Task<Result<string>> CompleteLesson(string userId ,int lessonId);
 }

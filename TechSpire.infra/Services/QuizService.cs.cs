@@ -43,8 +43,14 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
         return Result.Success(Quizzes);
     }
 
-    public async Task<Result<List<WrongAnswerResponse>>> SubmitUserAnswersAsync(int userId, List<UserAnswerRequest> answers)
+    public async Task<Result<List<WrongAnswerResponse>>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers)
     {
+        var repeted = await dbcontext.UserAnswers
+            .AnyAsync(ua => ua.UserId == userId && answers.Any(a => a.QuestionId == ua.QuestionId && a.AnswerId == ua.AnswerId));
+
+        if (repeted)
+            return Result.Failure<List<WrongAnswerResponse>>(new Error("Quiz.Repeted", "You have already submitted this answer.", StatusCodes.Status400BadRequest));
+
         var questionIds = answers
             .Select(a => a.QuestionId).ToList();
 
