@@ -9,6 +9,8 @@ using TechSpire.infra.Services.Auth;
 using TechSpire.infra.Services.User;
 using TechSpire.infra.Settings;
 using Hangfire;
+using TechSpire.Application.Services;
+using TechSpire.infra.Services;
 //using Microsoft.OpenApi.Models;
 
 
@@ -27,6 +29,8 @@ public static class InfraDependencies
         Services.AddScoped<IEmailSender, EmailService>();
         Services.AddScoped<IAuthService, AuthService>();
         Services.AddScoped<IJwtProvider, JwtProvider>();
+        Services.AddScoped<IStageService, StageService>();
+        Services.AddScoped<IQuizService, QuizService>();
 
         Services.AddProblemDetails();
 

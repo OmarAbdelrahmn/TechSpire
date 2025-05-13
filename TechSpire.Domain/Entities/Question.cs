@@ -6,5 +6,4 @@ public class Question
     public int QuizId { get; set; }
     public Quiz Quiz { get; set; } = default!;
     public List<Answer> Answers { get; set; } = [];
-    //public UserAnswer UserAnswer { get; set; } = default!;
 }

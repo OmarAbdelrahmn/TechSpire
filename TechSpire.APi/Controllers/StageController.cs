@@ -1,0 +1,31 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using TechSpire.Application.Services;
+
+namespace TechSpire.APi.Controllers;
+[Route("[controller]")]
+[ApiController]
+public class StageController(IStageService service) : ControllerBase
+{
+    private readonly IStageService service = service;
+
+    [HttpGet("")]
+    public async Task<IActionResult> GetAllStagesWithData()
+    {
+        var result = await service.GetAllStagesWithData();
+
+        return result.IsSuccess
+            ? Ok(result.Value)
+            : result.ToProblem();
+    }
+    
+    [HttpGet("{Id}")]
+    public async Task<IActionResult> GetStageWithData(int Id)
+    {
+        var result = await service.GetStageWithData(Id);
+
+        return result.IsSuccess
+            ? Ok(result.Value)
+            : result.ToProblem();
+    }
+}
