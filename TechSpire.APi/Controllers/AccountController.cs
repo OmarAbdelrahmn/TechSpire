@@ -19,7 +19,7 @@ public class AccountController(IUserService service) : ControllerBase
     {
         var result = await service.GetUserProfile(User.GetUserId()!);
 
-        return result.IsSuccess ? NoContent() : result.ToProblem();
+        return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
     [HttpPut("info")]

@@ -177,7 +177,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers");
+                    b.ToTable("Answers", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.ApplicataionUser", b =>
@@ -293,7 +293,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("StageId");
 
-                    b.ToTable("Articles");
+                    b.ToTable("Articles", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Book", b =>
@@ -327,7 +327,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("StageId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Lesson", b =>
@@ -353,7 +353,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("StageId");
 
-                    b.ToTable("Lessons");
+                    b.ToTable("Lessons", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Post", b =>
@@ -387,7 +387,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("StageId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Question", b =>
@@ -409,7 +409,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("QuizId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Quiz", b =>
@@ -435,7 +435,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("StangeId");
 
-                    b.ToTable("Quizzes");
+                    b.ToTable("Quizzes", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.Stage", b =>
@@ -452,7 +452,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stages");
+                    b.ToTable("Stages", (string)null);
                 });
 
             modelBuilder.Entity("TechSpire.Domain.Entities.UserAnswer", b =>
@@ -477,7 +477,7 @@ namespace TechSpire.infra.Migrations
 
                     b.HasIndex("UserId1");
 
-                    b.ToTable("UserAnswers");
+                    b.ToTable("UserAnswers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

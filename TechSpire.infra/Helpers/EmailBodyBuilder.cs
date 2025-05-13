@@ -1,5 +1,4 @@
-﻿namespace SurvayBasket.infra.Helpers;
-
+﻿namespace TechSpire.infra.Helpers;
 public static class EmailBodyBuilder
 {
     public static string GenerateEmailBody(string template, Dictionary<string, string> templateModel)
