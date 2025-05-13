@@ -11,4 +11,4 @@ public record QuizResponse
     string Title ,
     string Description,
     int StangeId,
-    List<Question> Questions);
+    List<QuestionResponse> Questions);

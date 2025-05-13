@@ -4,14 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TechSpire.Application.Abstraction;
+using TechSpire.Application.Contracts.Quiz;
 using TechSpire.Application.Contracts.Stage;
 using TechSpire.Application.Services;
+using TechSpire.Domain.Entities;
 using TechSpire.infra.Dbcontext;
 
 namespace TechSpire.infra.Services;
 public class QuizService(AppDbcontext dbcontext) : IQuizService
 {
     private readonly AppDbcontext dbcontext = dbcontext;
+
+    public async Task<Result<List<QuizResponse>>> GetAllQuizsForStage(int stageId)
+    {
+        var Quizzes = await dbcontext.Quizzes
+            .Where(c=>c.StangeId == stageId)
+            .ProjectToType<QuizResponse>()
+            .AsNoTracking()
+            .ToListAsync();
+
+        if (Quizzes == null)
+            return Result.Failure<List<QuizResponse>>(new Error("Quiz.Notfound", "No quiz found for the given stage.",StatusCodes.Status404NotFound));
+
+        return Result.Success(Quizzes);
+    }
+
+    public async Task<Result<QuizResponse>> GetQuizWithId(int Id)
+    {
+        var Quizzes = await dbcontext.Quizzes
+            .Where(c => c.Id == Id)
+            .ProjectToType<QuizResponse>()
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
+
+        if (Quizzes == null)
+            return Result.Failure<QuizResponse>(new Error("Quiz.Notfound", "No quiz found for the given Quiz ID.", StatusCodes.Status404NotFound));
+
+        return Result.Success(Quizzes);
+    }
 
     public async Task<Result<List<WrongAnswerResponse>>> SubmitUserAnswersAsync(int userId, List<UserAnswerRequest> answers)
     {

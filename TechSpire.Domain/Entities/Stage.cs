@@ -7,5 +7,6 @@ public class Stage
     public List<Post> Posts { get; set; } = [];
     public List<Article> Articles { get; set; } = [];
     public List<Book> Books { get; set; } = [];
+    public List<Quiz> Quizzes { get; set; } = [];
 
 }
