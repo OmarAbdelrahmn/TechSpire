@@ -16,6 +16,8 @@ public class AppDbcontext(DbContextOptions<AppDbcontext> options) : IdentityDbCo
     public DbSet<Article> Articles { get; set; } = default!;
     public DbSet<Book> Books { get; set; } = default!;
     public DbSet<Question> Questions { get; set; } = default!;
+    public DbSet<Fav> Favs { get; set; } = default!;
+
 
 
 
