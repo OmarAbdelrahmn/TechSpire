@@ -12,3 +12,11 @@ public record WrongAnswerResponse
     string SelectedAnswerText,
     string CorrectAnswerText
     );
+
+
+public record allinone(
+    
+    List<WrongAnswerResponse> WrongAnswers,
+    double Success ,
+    double Failed
+    );

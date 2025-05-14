@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechSpire.Application.Services;
+using TechSpire.infra.Extensions;
 
 namespace TechSpire.APi.Controllers;
 [Route("[controller]")]

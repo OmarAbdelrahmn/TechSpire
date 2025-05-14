@@ -10,7 +10,7 @@ using TechSpire.Application.Contracts.Stage;
 namespace TechSpire.Application.Services;
 public interface IQuizService
 {
-    Task<Result<List<WrongAnswerResponse>>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers);
+    Task<Result<allinone>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers);
 
     Task<Result<List<QuizResponse>>> GetAllQuizsForStage(int stageId);
     Task<Result<QuizResponse>> GetQuizWithId(int Id);

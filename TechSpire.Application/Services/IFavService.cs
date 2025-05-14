@@ -11,9 +11,8 @@ using TechSpire.Application.Contracts.Stage;
 namespace TechSpire.Application.Services;
 public interface IFavService
 {
-    Task<Result> AddItem(string UserId,string Type , int ItemId);
-    Task<Result> DeItem(string UserId, string Type , int ItemId);
-
-    Task<Result<IReadOnlyList<FavResponse>>> Show(string UserId);
+    Task<Result> AddItem(FavRequest request);
+    Task<Result> DeItem(FavRequest request);
+    Task<Result<IEnumerable<FavResponse>>> Show(string UserId);
     Task<Result> Clear(string UserId);
 }

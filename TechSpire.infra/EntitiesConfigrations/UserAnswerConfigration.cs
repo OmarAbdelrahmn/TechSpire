@@ -6,8 +6,8 @@ public class UserAnswerConfigration : IEntityTypeConfiguration<UserAnswer>
 {
     public void Configure(EntityTypeBuilder<UserAnswer> builder)
     {
-        builder
-            .HasKey(ua => new {ua.UserId, ua.QuestionId, ua.AnswerId });
+        //builder
+        //    .HasKey(ua => new {ua.UserId, ua.QuestionId, ua.AnswerId });
     }
 }
 

@@ -43,13 +43,34 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
         return Result.Success(Quizzes);
     }
 
-    public async Task<Result<List<WrongAnswerResponse>>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers)
+    public async Task<Result<allinone>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers)
     {
-        var repeted = await dbcontext.UserAnswers
-            .AnyAsync(ua => ua.UserId == userId && answers.Any(a => a.QuestionId == ua.QuestionId && a.AnswerId == ua.AnswerId));
+        #region HelloWorld
+        //var userAnswerss = await dbcontext.UserAnswers
+        //        .Where(e => e.UserId == userId)
+        //        .ToListAsync();
 
-        if (repeted)
-            return Result.Failure<List<WrongAnswerResponse>>(new Error("Quiz.Repeted", "You have already submitted this answer.", StatusCodes.Status400BadRequest));
+        //var exists = userAnswerss
+        //    .Any(e => answers.Any(a => a.QuestionId == e.QuestionId && a.AnswerId == e.AnswerId));
+
+        //var repeted = await dbcontext.UserAnswers
+        //    .AnyAsync(ua => ua.UserId == userId && answers.Any(a => a.QuestionId == ua.QuestionId && a.AnswerId == ua.AnswerId));
+
+        // 1. Prepare (QuestionId, AnswerId) pairs from the incoming answers
+        //var submittedKeys = answers
+        //    .Select(a => new ValueTuple<int, int>(a.QuestionId, a.AnswerId))
+        //    .ToList(); // Must be materialized
+
+        //// 2. Query EF with tuple-based Contains
+        //var duplicateAnswers = await dbcontext.UserAnswers
+        //    .Where(x => submittedKeys
+        //        .Contains(new ValueTuple<int, int>(x.QuestionId, x.AnswerId)))
+        //    .ToListAsync();
+
+
+        //if (repeted)
+        //    return Result.Failure<List<WrongAnswerResponse>>(new Error("Quiz.Repeted", "You have already submitted this answer.", StatusCodes.Status400BadRequest));
+        #endregion
 
         var questionIds = answers
             .Select(a => a.QuestionId).ToList();
@@ -76,7 +97,17 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
                     AnswerId = answerDto.AnswerId
                 });
             }
+
         }
+
+        // Remove existing answers for this user
+        var existingAnswers = await dbcontext.UserAnswers
+            .Where(ua => ua.UserId == userId && questionIds.Contains(ua.QuestionId) && !ua.Answer.IsCorrect)
+            .ToListAsync();
+
+        dbcontext.UserAnswers.RemoveRange(existingAnswers);
+        await dbcontext.SaveChangesAsync(); // Save deletions first
+
 
         await dbcontext.UserAnswers.AddRangeAsync(userAnswers);
         await dbcontext.SaveChangesAsync();
@@ -105,7 +136,23 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
             })
             .ToList();
 
-        return Result.Success(wrongAnswers);
+        int totalAnswers = userAnswers.Count;
+
+        int correctAnswersCount = userAnswers.Count(ua =>
+        {
+            var question = questions.First(q => q.Id == ua.QuestionId);
+            var selected = question.Answers.First(a => a.Id == ua.AnswerId);
+            return selected.IsCorrect;
+        });
+
+        int wrongAnswersCount = totalAnswers - correctAnswersCount;
+
+        double correctPercentage = totalAnswers == 0 ? 0 : (correctAnswersCount * 100.0) / totalAnswers;
+        double wrongPercentage = totalAnswers == 0 ? 0 : (wrongAnswersCount * 100.0) / totalAnswers;
+
+        var ayhaga = new allinone(wrongAnswers, correctPercentage, wrongPercentage);
+
+        return Result.Success(ayhaga);
     }
 
 }
