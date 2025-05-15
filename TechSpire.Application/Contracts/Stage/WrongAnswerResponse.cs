@@ -9,12 +9,13 @@ public record WrongAnswerResponse
 (
     int QustionId,
     string Text,
-    string SelectedAnswerText,
-    string CorrectAnswerText
+    List<string> SelectedAnswerText,
+    List<string> CorrectAnswerText,
+    double QuestionScore
     );
 
 
-public record allinone(
+public record Allinone(
     
     List<WrongAnswerResponse> WrongAnswers,
     double Success ,
