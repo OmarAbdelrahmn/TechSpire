@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -84,7 +85,7 @@ public class DataService(AppDbcontext dbcontext) : IDataService
             .ProjectToType<ArticleResponse>()
             .ToListAsync();
 
-        if (article is null)
+        if (article is null || article.Count == 0)
             return Result.Failure<IEnumerable<ArticleResponse>>(new Error("No.Article", "No articel found", StatusCodes.Status404NotFound));
 
         return Result.Success<IEnumerable<ArticleResponse>>(article);
@@ -107,7 +108,7 @@ public class DataService(AppDbcontext dbcontext) : IDataService
             .ProjectToType<BookResponse>()
             .ToListAsync();
 
-        if (Books is null)
+        if (Books is null || Books.Count == 0)
             return Result.Failure<IEnumerable<BookResponse>>(new Error("No.Books", "No Books found", StatusCodes.Status404NotFound));
 
         return Result.Success<IEnumerable<BookResponse>>(Books);
@@ -130,8 +131,8 @@ public class DataService(AppDbcontext dbcontext) : IDataService
             .ProjectToType<LessonResponse>()
             .ToListAsync();
 
-        if (Lesson is null)
-            return Result.Failure<IEnumerable<LessonResponse>>(new Error("No.Lesson", "No Lesson found", StatusCodes.Status404NotFound));
+        if (Lesson is null || Lesson.Count == 0)
+            return Result.Failure<IEnumerable<LessonResponse>>(new Error("No.lessons", "No lessons found", StatusCodes.Status404NotFound));
 
         return Result.Success<IEnumerable<LessonResponse>>(Lesson);
     }
@@ -143,8 +144,8 @@ public class DataService(AppDbcontext dbcontext) : IDataService
             .ProjectToType<PostResponse>()
             .ToListAsync();
 
-        if (Post is null)
-            return Result.Failure<IEnumerable<PostResponse>>(new Error("No.Post", "No Post found", StatusCodes.Status404NotFound));
+        if (Post is null || Post.Count == 0)
+            return Result.Failure<IEnumerable<PostResponse>>(new Error("No.Posts", "No Posts found", StatusCodes.Status404NotFound));
 
         return Result.Success<IEnumerable<PostResponse>>(Post);
     }
