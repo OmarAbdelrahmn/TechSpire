@@ -30,9 +30,15 @@ public class AuthController(IAuthService service) : ControllerBase
             response.ToProblem();
     }
 
-    [HttpPost("confirm-email")]
-    public async Task<IActionResult> ConfirmEmailAsync([FromBody] ConfigrationEmailRequest request)
+    [HttpGet("emailconfigration")]
+    public async Task<IActionResult> ConfirmEmailAsync([FromQuery] string userid, string code)
     {
+        var request = new ConfigrationEmailRequest
+        (
+           userid,
+           code
+        );
+
         var response = await service.ConfirmEmailAsync(request);
 
         return response.IsSuccess ?

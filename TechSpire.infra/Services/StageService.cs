@@ -87,4 +87,7 @@ public class StageService(AppDbcontext dbcontext , UserManager<ApplicataionUser>
 
         return Result.Success(stage);
     }
+   
+    
+   
 }
