@@ -20,11 +20,6 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-
-//}
 app.UseExceptionHandler();   //  Handle exceptions
 
 app.UseHangfireDashboard("/jobs");
