@@ -43,7 +43,6 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
         return Result.Success(Quizzes);
     }
 
-
     #region submit
     //public async Task<Result<Allinone>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers)
     //{
@@ -266,8 +265,40 @@ public class QuizService(AppDbcontext dbcontext) : IQuizService
         return Result.Success(allinoneResult);
     }
 
+    public async Task<Result<UserQuizSummaryResponse>> GetUserQuizSummaryAsync(string userId)
+    {
+        var quizResults = await dbcontext.UserQuizResults
+            .Where(r => r.UserId == userId)
+            .Include(r => r.Quiz)
+            .OrderByDescending(r => r.SubmittedAt)
+            .ToListAsync();
 
+        if (quizResults.Count == 0)
+            return Result.Failure<UserQuizSummaryResponse>(new Error("Quiz.NoneFound", "No quiz attempts found.",400));
 
+        var attempts = quizResults.Select(r => new QuizAttemptSummary
+        (
+            r.QuizId,
+            r.Quiz?.Title ?? "Untitled Quiz",
+            r.CorrectPercentage,
+            r.SubmittedAt
+        )).ToList();
+
+        double averageScore = quizResults.Average(r => r.CorrectPercentage);
+        int passedCount = quizResults.Count(r => r.CorrectPercentage >= 50);
+        int failedCount = quizResults.Count - passedCount;
+
+        var response = new UserQuizSummaryResponse
+        (
+            attempts,
+            averageScore,
+            quizResults.Count,
+            passedCount,
+            failedCount
+        );
+
+        return Result.Success(response);
+    }
 
 }
 

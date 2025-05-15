@@ -11,7 +11,8 @@ namespace TechSpire.Application.Services;
 public interface IQuizService
 {
     Task<Result<Allinone>> SubmitUserAnswersAsync(string userId, List<UserAnswerRequest> answers);
-
     Task<Result<List<QuizResponse>>> GetAllQuizsForStage(int stageId);
     Task<Result<QuizResponse>> GetQuizWithId(int Id);
+    Task<Result<UserQuizSummaryResponse>> GetUserQuizSummaryAsync(string userId);
+
 }
