@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechSpire.Application.Services;
 using TechSpire.infra.Extensions;
@@ -6,6 +7,7 @@ using TechSpire.infra.Extensions;
 namespace TechSpire.APi.Controllers;
 [Route("[controller]")]
 [ApiController]
+[Authorize]
 public class StageController(IStageService service) : ControllerBase
 {
     private readonly IStageService service = service;
@@ -31,8 +33,10 @@ public class StageController(IStageService service) : ControllerBase
     }
     
     [HttpPost("{Lessonid}")]
-    public async Task<IActionResult> CompleteLesson(string UserId , int Lessonid)
+    public async Task<IActionResult> CompleteLesson( int Lessonid)
     {
+        var UserId = User.GetUserId();
+
         var result = await service.CompleteLesson(UserId , Lessonid);
 
         return result.IsSuccess

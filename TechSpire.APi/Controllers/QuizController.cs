@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechSpire.Application.Contracts.Stage;
 using TechSpire.Application.Services;
+using TechSpire.infra.Extensions;
 
 namespace TechSpire.APi.Controllers;
 [Route("[controller]")]
 [ApiController]
+[Authorize]
 public class QuizController(IQuizService service) : ControllerBase
 {
     private readonly IQuizService service = service;
@@ -26,17 +29,20 @@ public class QuizController(IQuizService service) : ControllerBase
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
 
-    [HttpPost("submit/{userId}")]
-    public async Task<IActionResult> SubmitUserAnswers([FromBody] List<UserAnswerRequest> answers , string userId)
+    [HttpPost("submit")]
+    public async Task<IActionResult> SubmitUserAnswers([FromBody] List<UserAnswerRequest> answers)
     {
-        var result = await service.SubmitUserAnswersAsync(userId, answers);
+        var userId = User.GetUserId();
+        var result = await service.SubmitUserAnswersAsync(userId!, answers);
 
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();
     }
     
-    [HttpPost("insights/{userId}")]
-    public async Task<IActionResult> GetUserInsights(string userId)
+    [HttpPost("insights")]
+    public async Task<IActionResult> GetUserInsights()
     {
+        var userId = User.GetUserId()!;
+
         var result = await service.GetUserQuizSummaryAsync(userId);
 
         return result.IsSuccess ? Ok(result.Value) : result.ToProblem();

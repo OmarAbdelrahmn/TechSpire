@@ -15,10 +15,10 @@ public class FavService(AppDbcontext dbcontext , UserManager<ApplicataionUser> m
     private readonly AppDbcontext dbcontext = dbcontext;
     private readonly UserManager<ApplicataionUser> manager = manager;
 
-    public async Task<Result> AddItem(FavRequest request)
+    public async Task<Result> AddItem(string UserId, FavRequest request)
     {
         var ItemIsExicted = await dbcontext.Favs
-            .AnyAsync(c=>c.ItemId == request.ItemId && c.UserId == request.UserId && c.Type == request.Type);
+            .AnyAsync(c=>c.ItemId == request.ItemId && c.UserId == UserId && c.Type == request.Type);
 
         if (ItemIsExicted)
             return Result.Failure(new Error("Item.repeted", "this item is in your favourite already", StatusCodes.Status400BadRequest));
@@ -54,16 +54,16 @@ public class FavService(AppDbcontext dbcontext , UserManager<ApplicataionUser> m
 
     }
 
-    public async Task<Result> DeItem(FavRequest request)
+    public async Task<Result> DeItem(string UserId, FavRequest request)
     {
         var ItemIsExicted = await dbcontext.Favs
-            .AnyAsync(c => c.ItemId == request.ItemId && c.UserId == request.UserId && c.Type == request.Type);
+            .AnyAsync(c => c.ItemId == request.ItemId && c.UserId == UserId && c.Type == request.Type);
 
         if (!ItemIsExicted)
             return Result.Failure(new Error("noItem", "no Item found for this user ", StatusCodes.Status400BadRequest));
 
         var Item = await dbcontext.Favs
-            .Where(c => c.ItemId == request.ItemId && c.UserId == request.UserId && c.Type == request.Type)
+            .Where(c => c.ItemId == request.ItemId && c.UserId == UserId && c.Type == request.Type)
             .ExecuteDeleteAsync();
 
         return Result.Success();

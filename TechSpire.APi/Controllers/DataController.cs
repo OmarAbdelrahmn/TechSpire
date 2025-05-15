@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TechSpire.Application.Services;
 
 namespace TechSpire.APi.Controllers;
 [Route("[controller]")]
 [ApiController]
+[Authorize]
 public class DataController(IDataService service) : ControllerBase
 {
     private readonly IDataService service = service;

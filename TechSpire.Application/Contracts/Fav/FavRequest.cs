@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 namespace TechSpire.Application.Contracts.Fav;
 public record FavRequest
 (
-    [Required(ErrorMessage ="UserId is required")]
-    string UserId,
     [Required(ErrorMessage ="Type is required")]
     string Type,
     [Required(ErrorMessage ="ItemId is required")]
