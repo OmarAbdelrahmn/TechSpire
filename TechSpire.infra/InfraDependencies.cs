@@ -32,6 +32,7 @@ public static class InfraDependencies
         Services.AddScoped<IStageService, StageService>();
         Services.AddScoped<IQuizService, QuizService>();
         Services.AddScoped<IFavService, FavService>();
+        Services.AddScoped<IDataService, DataService>();
 
         Services.AddProblemDetails();
 
