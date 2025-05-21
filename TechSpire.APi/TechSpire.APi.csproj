@@ -27,7 +27,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<Content Include="TechSpire.infra\Templates\**">
+		<Content Include="TechSpire.APi\Templates\**">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
